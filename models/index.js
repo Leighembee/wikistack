@@ -21,19 +21,15 @@ let Page = db.define('page', {
   }
 }, {
   hooks: {
-   beforeValidation: (title, options) => {
-    if (title) {
-     return title.replace(/\s+/g, '_').replace(/\W/g, '');
+   beforeValidation: (page, options) => {
+    if (page.title) {
+     return page.title.replace(/\s+/g, '_').replace(/\W/g, '');
     } else {
      return Math.random().toString(36).substring(2, 7);
     }
   }
   }
 });
-
-
-
-
 
 
 
@@ -44,6 +40,8 @@ let User = db.define('user',{
 }
 
 });
+
+
 
 module.exports = {
   db: db,

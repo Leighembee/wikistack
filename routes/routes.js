@@ -3,10 +3,9 @@ const router = express.Router();
 const wikiRouter = require('./wiki.js');
 const userRouter = require('./user.js');
 
-//wiki.js
-const models = require('../models');
-const Page = models.Page;
-const User = models.User;
+
+
+
 
 
 
