@@ -12,9 +12,12 @@ router.get('/', function(req, res, next) {
   //res.send('got to GET /wiki/');
 });
 
-router.post('/', function(req, res, next) {
-  res.send('got to POST /wiki/');
+router.post('/wiki', function(req, res, next) {
+  console.log(req.body.name);
+  res.json(req.body);
+  //res.send('got to POST /wiki/');
 });
+
 
 router.get('/add', function(req, res, next) {
   res.render('addpage');

@@ -7,18 +7,15 @@ const bodyParser = require('body-parser');
 const models = require('./models');
 
 
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
 
 
 let env = nunjucks.configure('views', {noCache: true});
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 
-
-// models.User.sync({})
-//  .then(function () {
-//    return models.Page.sync({})
-//  })
 
 
 app.use(morgan('tiny'));
