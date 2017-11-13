@@ -3,7 +3,11 @@ const router = express.Router();
 const wikiRouter = ('./wiki.js');
 const userRouter = ('./user.js');
 
-// router.use('/wiki', wikiRouter)
+//wiki.js
+const models = require('../models');
+const Page = models.Page;
+const  User = models.User;
+//router.use('/wiki', wikiRouter)
 // router.use('/user', userRouter)
 
 
@@ -23,6 +27,27 @@ router.get('/add', function(req, res, next) {
   res.render('addpage');
 });
 
+
+// wiki.js
+router.post('/', function(req, res, next) {
+
+  var page = Page.build({
+    title: { type: Sequelize.STRING, allowNull: false
+    },
+    content: { type: Sequelize.TEXT, allowNull: false
+    }
+  });
+
+  page.save()
+   .then(function(){
+      res.redirect('/')
+   })
+});
+
+
+
+
+module.exports = router;
 
 
 module.exports = router;
