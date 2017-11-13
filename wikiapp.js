@@ -20,6 +20,7 @@ app.engine('html', nunjucks.render);
 
 app.use(morgan('tiny'));
 app.use(express.static(__dirname + '/public'));
+
 app.use('/', routes);
 
 models.db.sync({force: true})

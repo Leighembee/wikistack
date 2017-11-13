@@ -4,21 +4,17 @@ const models = require('../models');
 const Page = models.Page;
 const  User = models.User;
 
-router.post('/', function(req, res, next) {
+router.get('/', function(req,res,next){
+  res.redirect('/');
+})
 
-  var page = Page.build({
-    title: { type: Sequelize.STRING, allowNull: false
-    },
-    content: { type: Sequelize.TEXT, allowNull: false
-    }
+router.post('/', function(req, res, next){
+  res.send('got to post wiki')
+})
+
+  router.get('/add', function(req, res, next) {
+    res.render('addpage');
   });
-
-  page.save()
-   .then(function(){
-      res.redirect('/')
-   })
-});
-
 
 
 
